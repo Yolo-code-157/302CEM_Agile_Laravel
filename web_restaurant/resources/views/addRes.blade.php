@@ -19,7 +19,17 @@
     <link href="/assets/css/addRes.css" rel="stylesheet" />
   </head>
   <body>
+  @if(Session::get('success'))
+        <div class="alert alert-success">
+            {{Session::get('success')}}
+        </div>
+    @endif
 
+    @if(Session::get('fail'))
+        <div class="alert alert-danger">
+            {{Session::get('fail')}}
+        </div>
+    @endif
 
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('img/bg2.jpg')">
   <div class="container">
@@ -36,19 +46,26 @@
 <div class="main main-raised">
   <div class="container">
     <div class="section text-left">
-	<form name="Add Res" action="" method="POST">
-  <input type="text" class="form-control" placeholder="Restaurant Name" name="Name" required><br>
+	<form name="Add Res" action="add" method="post">
+
+    @csrf
+  <input type="text" class="form-control" placeholder="Restaurant Name" name="name" required><br>
+  <span style="color:red">@error('name'){{ $message }} @enderror</span>
 	<br>
-	<input type="text" class="form-control" placeholder="Postcode" name="Postcode" required><br>
+	<input type="text" class="form-control" placeholder="postcode" name="postcode" required><br>
+  <span style="color:red">@error('postcode'){{ $message }} @enderror</span>
 	<br>
-	<input type= "file" name="Pic"  class="form-control" accept="image/* " required><br>
+	<input type= "file" name="pic"  class="form-control" accept="image/* " required><br>
+  <span style="color:red">@error('pic'){{ $message }} @enderror</span>
 	<br>
-	<input type="text" class="form-control" placeholder="Type of Food Served" name="FoodType" required><br>
+	<input type="text" class="form-control" placeholder="Type of Food Served" name="foodtype" required><br>
+  <span style="color:red">@error('foodtype'){{ $message }} @enderror</span>
 	<br>
 	<div class="form-group">
 	<label for="exampleMessage" class="bmd-label-floating">Your Message</label>
-    <textarea class="form-control" rows="4" name="Description"></textarea><br>
+    <textarea class="form-control" rows="4" name="description"></textarea><br>
 	</div>
+  <span style="color:red">@error('description'){{ $message }} @enderror</span>
 	<br>
 	<input type="submit" class="btn btn-primary btn-round" name="add_res"><br>
 	</form>
