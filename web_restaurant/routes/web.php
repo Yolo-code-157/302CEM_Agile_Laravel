@@ -30,3 +30,7 @@ Route::get('/footer', function () {
     return view('footer');
    // return 'restaurant';
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/addRes', function () {
+    return view('addRes');
+})->name('addRes');
