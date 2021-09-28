@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\addResFunc;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +31,15 @@ Route::get('/header', function () {
 Route::get('/footer', function () {
     return view('footer');
    // return 'restaurant';
+<<<<<<< HEAD
 });
+=======
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/addRes', function () {
+    return view('addRes');
+})->name('addRes');
+
+
+Route::post('add', [addResFunc::class, 'add']);
+>>>>>>> 898d42667c810128b112ab3beb63695299860c67
