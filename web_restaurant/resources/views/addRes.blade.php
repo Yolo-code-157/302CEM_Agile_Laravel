@@ -1,7 +1,3 @@
-<?php
- // include("addRestaurant.php");
-  //addRes();
-?>
 <x-app-layout>
 <html lang="en">
   <head>
@@ -52,7 +48,7 @@
             <input type="text" class="form-control" placeholder="Restaurant Name" name="name" required><br>
             <span style="color:red">@error('name'){{ $message }} @enderror</span>
             <br>
-            <input type="text" class="form-control" placeholder="postcode" name="postcode" required><br>
+            <input type="text" class="form-control" placeholder="Restaurant Postcode" name="postcode" required><br>
             <span style="color:red">@error('postcode'){{ $message }} @enderror</span>
             <br>
             <input type= "file" name="pic"  class="form-control" accept="image/* " required><br>
@@ -62,20 +58,22 @@
             <span style="color:red">@error('foodtype'){{ $message }} @enderror</span>
             <br>
             <div class="form-group">
-              <div class="form-group">  <!-- Create the editor container -->
+              <div class="form-group">  
+                <!-- Create the editor container -->
                 <div id="content" name="Description" style="height:300px">
-
                 </div>
-                <textarea class="form-control" id="content-textarea" type="textarea" style="display:none" rows="4" name="description">hi</textarea><br>  
+                <textarea class="form-control" id="content-textarea" type="textarea" style="display:none" rows="4" name="description"></textarea><br>  
               </div>
             </div>
             <span style="color:red">@error('description'){{ $message }} @enderror</span>
-            <br>
+            {{-- Get the Session Username --}}
+            <input type="text" hidden class="form-control" placeholder="Type of Food Served" value="{{ Auth::user()->name }}" name="username" required><br>
             <input type="submit" class="btn btn-primary btn-round" name="add_res"><br>
           </form>
         </div>
       </div>
     </div>
+  </body>
 
   @include('footer')
 </x-app-layout>

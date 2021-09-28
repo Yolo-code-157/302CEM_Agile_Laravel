@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,10 @@ class addResFunc extends Controller
         $name_val = $request->get('name');
         $postcode_val = $request->get('postcode');
 
+        // Get system current date and time in Malaysia timezone
+        $mytime = Carbon::now("Asia/Kuala_Lumpur");
+        echo $mytime->toDateTimeString();
+
         if (DB::table('restaurant')->where('resName', $name_val)->where('resPostcode', $postcode_val)->exists()) {
             return back()->with('fail', 'Name and postcode of the restaurant are already in the system');
         }
@@ -28,7 +33,9 @@ class addResFunc extends Controller
                 'resPostcode' => $request->input('postcode'),
                 'resPic' => $request->input('pic'),
                 'resFoodType' => $request->input('foodtype'),
-                'resDescription' => $request->input('description')
+                'resDescription' => $request->input('description'),
+                'resOwnerName' => $request->input('username'),
+                'createdAt' => $mytime
             ]);
 
             return back()->with('success', 'data saved');
