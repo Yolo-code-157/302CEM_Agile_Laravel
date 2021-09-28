@@ -7,32 +7,31 @@ use Illuminate\Support\Facades\DB;
 
 class addResFunc extends Controller
 {
-    //
-    function add(Request $request){
-        //return $request->input();
+    function add(Request $request) {
         $request->validate([
-            'name'=>'required',
-            'postcode'=>'required',
-            'pic'=>'required',
-            'foodtype'=>'required',
-            'description'=>'required'
-
+            'name' => 'required',
+            'postcode' => 'required | digits:5',
+            'pic' => 'required',
+            'foodtype' => 'required',
+            'description' => 'required'
         ]);
 
-        $query = DB::table('restaurant')->insert([
-            'resName'=>$request->input('name'),
-            'resPostcode'=>$request->input('postcode'),
-            'resPic'=>$request->input('pic'),
-            'resFoodType'=>$request->input('foodtype'),
-            'resDescription'=>$request->input('description')
+        $name_val = $request->get('name');
+        $postcode_val = $request->get('postcode');
 
-        ]);
-
-        if($query){
-            return back()->with('success', 'data saved');
+        if (DB::table('restaurant')->where('resName', $name_val)->where('resPostcode', $postcode_val)->exists()) {
+            return back()->with('fail', 'Name and postcode of the restaurant are already in the system');
         }
-        else{
-            return back()->with('fail', 'Failed to save');
+        else {
+            $query = DB::table('restaurant')->insert([
+                'resName' => $request->input('name'),
+                'resPostcode' => $request->input('postcode'),
+                'resPic' => $request->input('pic'),
+                'resFoodType' => $request->input('foodtype'),
+                'resDescription' => $request->input('description')
+            ]);
+
+            return back()->with('success', 'data saved');
         }
     }
 }
