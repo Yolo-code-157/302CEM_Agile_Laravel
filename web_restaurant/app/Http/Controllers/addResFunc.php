@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -8,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 
 class addResFunc extends Controller
 {
-    function add(Request $request) {
+    function add(Request $request)
+    {
         $request->validate([
             'name' => 'required',
             'postcode' => 'required | digits:5',
@@ -26,8 +28,7 @@ class addResFunc extends Controller
 
         if (DB::table('restaurant')->where('resName', $name_val)->where('resPostcode', $postcode_val)->exists()) {
             return back()->with('fail', 'Name and postcode of the restaurant are already in the system');
-        }
-        else {
+        } else {
             $query = DB::table('restaurant')->insert([
                 'resName' => $request->input('name'),
                 'resPostcode' => $request->input('postcode'),
