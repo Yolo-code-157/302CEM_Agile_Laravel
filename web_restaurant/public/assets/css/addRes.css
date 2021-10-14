@@ -15031,6 +15031,7 @@ textarea {
 .alert.alert-success {
   background-color: #55b559;
   color: #fff;
+  margin: 0;
 }
 
 .alert.alert-success a,
@@ -15061,6 +15062,7 @@ textarea {
 .alert.alert-danger {
   background-color: #f55145;
   color: #fff;
+  margin: 0;
 }
 
 .alert.alert-danger a,
@@ -16819,7 +16821,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .page-header {
-  height: 100vh;
+  height: 60vh;
   background-position: center center;
   background-size: cover;
   margin: 0;

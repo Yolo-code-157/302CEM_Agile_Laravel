@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\addResFunc;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
