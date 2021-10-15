@@ -1166,6 +1166,7 @@
         },
         {
             "name": "laravel/framework",
+
             "version": "v8.64.0",
             "source": {
                 "type": "git",
@@ -1176,6 +1177,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/3337c029e1bb31d9712d27437cc27010ba302c9e",
                 "reference": "3337c029e1bb31d9712d27437cc27010ba302c9e",
+
                 "shasum": ""
             },
             "require": {
@@ -1333,6 +1335,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+
             "time": "2021-10-12T13:43:13+00:00"
         },
         {
@@ -1347,6 +1350,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/jetstream/zipball/86e6d8d8517e00421ffdcea2a838c5e91fcca4c9",
                 "reference": "86e6d8d8517e00421ffdcea2a838c5e91fcca4c9",
+
                 "shasum": ""
             },
             "require": {
@@ -1399,7 +1403,9 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
+
             "time": "2021-10-12T15:29:44+00:00"
+
         },
         {
             "name": "laravel/sanctum",
@@ -1523,6 +1529,65 @@
                 "source": "https://github.com/laravel/serializable-closure"
             },
             "time": "2021-10-07T14:00:57+00:00"
+        },
+        {
+            "name": "laravel/serializable-closure",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/serializable-closure.git",
+                "reference": "679e24d36ff8b9be0e36f5222244ec8602e18867"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/679e24d36ff8b9be0e36f5222244ec8602e18867",
+                "reference": "679e24d36ff8b9be0e36f5222244ec8602e18867",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "pestphp/pest": "^1.18",
+                "phpstan/phpstan": "^0.12.98",
+                "symfony/var-dumper": "^5.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\SerializableClosure\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Nuno Maduro",
+                    "email": "nuno@laravel.com"
+                }
+            ],
+            "description": "Laravel Serializable Closure provides an easy and secure way to serialize closures in PHP.",
+            "keywords": [
+                "closure",
+                "laravel",
+                "serializable"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/serializable-closure/issues",
+                "source": "https://github.com/laravel/serializable-closure"
+            },
+            "time": "2021-09-29T13:25:52+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -6182,6 +6247,7 @@
         },
         {
             "name": "laravel/sail",
+
             "version": "v1.12.0",
             "source": {
                 "type": "git",
@@ -6192,6 +6258,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sail/zipball/80f6cd93844e87ebc2e7310f9a9b9917473f5eb0",
                 "reference": "80f6cd93844e87ebc2e7310f9a9b9917473f5eb0",
+
                 "shasum": ""
             },
             "require": {
@@ -6238,7 +6305,9 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
+
             "time": "2021-10-12T15:38:11+00:00"
+
         },
         {
             "name": "mockery/mockery",
