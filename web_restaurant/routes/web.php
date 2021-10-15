@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\addResFunc;
+use App\Http\Controllers\addController;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -16,23 +15,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard');
+})->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/addRes', function () {
+    return view('addRes');
+})->name('addRes');
+
 Route::get('/header', function () {
     return view('header');
-   // return 'restaurant';
+    // return 'restaurant';
 });
 
 Route::get('/footer', function () {
     return view('footer');
-   // return 'restaurant';
+    // return 'restaurant';
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/addRes', function () {
     return view('addRes');
 })->name('addRes');
+Route::get('logout', [addController::class, 'logout']);
+Route::post('add', [addController::class, 'add']);
