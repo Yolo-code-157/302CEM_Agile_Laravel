@@ -36,5 +36,8 @@ Route::get('/footer', function () {
     // return 'restaurant';
 });
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/addRes', function () {
+    return view('addRes');
+})->name('addRes');
 Route::get('logout', [addController::class, 'logout']);
 Route::post('add', [addController::class, 'add']);
