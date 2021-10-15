@@ -42,7 +42,7 @@
         <div class="main main-raised">
             <div class="container">
                 <div class="section text-left">
-                    <form name="Add Res" action="add" method="post">
+                    <form name="Add Res" action="add" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="text" class="form-control" placeholder="Restaurant Name" name="name"
                             required><br>
