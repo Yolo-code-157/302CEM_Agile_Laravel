@@ -46,161 +46,30 @@
                     </form>
                 </div>
                 <div class="section">
+                
                 <div class="row">
+                @foreach($users as $row)  
                     <!--Modal-->
                     <div class="col-lg-3 col-sm-6 mb-sm-3">
                         <div class="card-plain">
                             <div class="card-header p-0">
-                                <img src="../assets/img/restaurantbg.jpg"
-                                    class="img-fluid border-radius-lg" loading="lazy">
+                                
+                                <img src="data:image/{{base64_encode($row->resPicType)}};charset=utf8;base64,{{base64_encode($row->resPic)}}" 
+                                class="img-fluid border-radius-lg" alt="restaurant image" loading="lazy"/>
                             </div>
                             <div class="card-body px-0">
-                                <h5>
-                                    <a href="#" class="text-dark font-weight-bold">Neque porro quisquam</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit.
-                                    Donec metus, sodale.
-                                </p>
+                                <h3>
+                                 <a href="#" class="text-dark font-weight-bold">{{ $row -> resName }}</a>
+                                </h3>
+                                <h5>Postcode: {{ $row -> resPostcode }}</h5>
+                                <h5>Type: {{ $row -> resFoodType }}</h5>
+                                <h5>Owner: {{ $row -> resOwnerName }}</h5>
+                                <p>{!! nl2br($row->resDescription) !!}</p>
                                 <a href="#" class="text-primary text-sm">Read More</a>
                             </div>
                         </div>
-                    </div>
-                    <!--Modal-->
-                    <div class="col-lg-3 col-sm-6 mb-sm-3">
-                        <div class="card-plain">
-                            <div class="card-header p-0">
-                                <img src="../assets/img/restaurantbg.jpg"
-                                    class="img-fluid border-radius-lg" loading="lazy">
-                            </div>
-                            <div class="card-body px-0">
-                                <h5>
-                                    <a href="#" class="text-dark font-weight-bold">Neque porro quisquam</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit.
-                                    Donec metus, sodale.
-                                </p>
-                                <a href="#" class="text-primary text-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 mb-sm-3">
-                        <div class="card-plain">
-                            <div class="card-header p-0">
-                                <img src="../assets/img/restaurantbg.jpg"
-                                    class="img-fluid border-radius-lg" loading="lazy">
-                            </div>
-                            <div class="card-body px-0">
-                                <h5>
-                                    <a href="#" class="text-dark font-weight-bold">Neque porro quisquam</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit.
-                                    Donec metus, sodale.
-                                </p>
-                                <a href="#" class="text-primary text-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 mb-sm-3">
-                        <div class="card-plain">
-                            <div class="card-header p-0">
-                                <img src="../assets/img/restaurantbg.jpg"
-                                    class="img-fluid border-radius-lg" loading="lazy">
-                            </div>
-                            <div class="card-body px-0">
-                                <h5>
-                                    <a href="#" class="text-dark font-weight-bold">Neque porro quisquam</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit.
-                                    Donec metus, sodale.
-                                </p>
-                                <a href="#" class="text-primary text-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 mb-sm-3">
-                        <div class="card-plain">
-                            <div class="card-header p-0">
-                                <img src="../assets/img/restaurantbg.jpg"
-                                    class="img-fluid border-radius-lg" loading="lazy">
-                            </div>
-                            <div class="card-body px-0">
-                                <h5>
-                                    <a href="#" class="text-dark font-weight-bold">Neque porro quisquam</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit.
-                                    Donec metus, sodale.
-                                </p>
-                                <a href="#" class="text-primary text-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 mb-sm-3">
-                        <div class="card-plain">
-                            <div class="card-header p-0">
-                                <img src="../assets/img/restaurantbg.jpg"
-                                    class="img-fluid border-radius-lg" loading="lazy">
-                            </div>
-                            <div class="card-body px-0">
-                                <h5>
-                                    <a href="#" class="text-dark font-weight-bold">Neque porro quisquam</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit.
-                                    Donec metus, sodale.
-                                </p>
-                                <a href="#" class="text-primary text-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 mb-sm-3">
-                        <div class="card-plain">
-                            <div class="card-header p-0">
-                                <img src="../assets/img/restaurantbg.jpg"
-                                    class="img-fluid border-radius-lg" loading="lazy">
-                            </div>
-                            <div class="card-body px-0">
-                                <h5>
-                                    <a href="#" class="text-dark font-weight-bold">Neque porro quisquam</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit.
-                                    Donec metus, sodale.
-                                </p>
-                                <a href="#" class="text-primary text-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 mb-sm-3">
-                        <div class="card-plain">
-                            <div class="card-header p-0">
-                                <img src="../assets/img/restaurantbg.jpg"
-                                    class="img-fluid border-radius-lg" loading="lazy">
-                            </div>
-                            <div class="card-body px-0">
-                                <h5>
-                                    <a href="#" class="text-dark font-weight-bold">Neque porro quisquam</a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit.
-                                    Donec metus, sodale.
-                                </p>
-                                <a href="#" class="text-primary text-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>
+                    </div>                
+                    @endforeach
                 </div>
             </div>
             </div>

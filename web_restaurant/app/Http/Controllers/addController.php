@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-
+use GrahamCampbell\ResultType\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class addController extends Controller
 {
+    public function index(){
+        $users = DB::select('select * from restaurant');
+        return view('dashboard',['users'=>$users]);
+    }
+
     function logout(Request $request)
     {
         $r = $request->session()->flush();
@@ -26,6 +31,12 @@ class addController extends Controller
             'description' => 'required'
         ]);
 
+        if($request->hasFile('pic')){
+            $image = $request->file('pic');
+            $type = pathinfo($image, PATHINFO_EXTENSION);
+            $data = file_get_contents($image);
+        }
+
         $name_val = $request->get('name');
         $postcode_val = $request->get('postcode');
 
@@ -39,7 +50,8 @@ class addController extends Controller
             $query = DB::table('restaurant')->insert([
                 'resName' => $request->input('name'),
                 'resPostcode' => $request->input('postcode'),
-                'resPic' => $request->input('pic'),
+                'resPicType' => $type,
+                'resPic' => $data,
                 'resFoodType' => $request->input('foodtype'),
                 'resDescription' => $request->input('description'),
                 'resOwnerName' => $request->input('username'),

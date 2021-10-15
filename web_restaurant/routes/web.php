@@ -38,3 +38,4 @@ Route::get('/footer', function () {
 
 Route::get('logout', [addController::class, 'logout']);
 Route::post('add', [addController::class, 'add']);
+Route::get('dashboard',[addController::class, 'index']);
