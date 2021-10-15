@@ -7,8 +7,15 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class addResFunc extends Controller
+class addController extends Controller
 {
+    function logout(Request $request)
+    {
+        $r = $request->session()->flush();
+
+        return redirect("/");
+    }
+
     function add(Request $request)
     {
         $request->validate([
