@@ -62,10 +62,7 @@
                                  <a href="#" class="text-dark font-weight-bold">{{ $row -> resName }}</a>
                                 </h3>
                                 <h5>Postcode: {{ $row -> resPostcode }}</h5>
-                                <h5>Type: {{ $row -> resFoodType }}</h5>
-                                <h5>Owner: {{ $row -> resOwnerName }}</h5>
-                                <p>{!! nl2br($row->resDescription) !!}</p>
-                                <a href="#" class="text-primary text-sm">Read More</a>
+                                <a href="viewRes/{{$row->resID}}" class="text-primary text-sm">Read More</a>
                             </div>
                         </div>
                     </div>                

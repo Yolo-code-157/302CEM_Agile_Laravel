@@ -14,6 +14,18 @@ class addController extends Controller
         return view('dashboard',['users'=>$users]);
     }
 
+    public function viewRes($id){
+        //echo $id; testing purpose
+        $row = DB::table('restaurant')->where('resID', $id)->first();
+        $data = [
+            'Detail' => $row,
+            'Title' => 'Restaurant Detail'
+        ];
+
+        return view('viewRes',$data);
+
+    }
+
     function logout(Request $request)
     {
         $r = $request->session()->flush();
