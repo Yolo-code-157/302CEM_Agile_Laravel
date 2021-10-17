@@ -14,7 +14,7 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
             <!-- Material Kit CSS -->
-            <link href="/assets/css/addRes.css" rel="stylesheet" />
+            <link href="/assets/css/viewRes.css" rel="stylesheet" />
 
             <style>
                 .border-radius-lg {
