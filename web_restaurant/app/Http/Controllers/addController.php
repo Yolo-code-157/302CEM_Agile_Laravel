@@ -9,9 +9,34 @@ use Illuminate\Support\Facades\DB;
 
 class addController extends Controller
 {
-    public function index(){
-        $users = DB::select('select * from restaurant');
-        return view('dashboard',['users'=>$users]);
+    // public function index(){
+    //     $users = DB::select('select * from restaurant');
+    //     return view('dashboard',['users'=>$users]);
+    // }
+
+    public function index(Request $request){
+        $search = $request['search'] ?? ""; //for checking the search query is empty or not and assign to $search
+        $users = DB::select('select * from restaurant'); //by default the view will be showing all the restaurant
+
+        //when the seach query is not empty
+        if($search != ""){
+            //retrieve the data based on the search query
+            $searchRes = DB::table('restaurant')->where('resName','LIKE','%'.$search.'%')->get();
+
+            if(count($searchRes)>0){
+                //if restaurant found
+                return view('dashboard')->withQuery("Search results for your query are: <b>$search</b>")->withSearchRes($searchRes)->withUsers($users);
+            }else{
+                //if restaurant not found
+                return view('dashboard')->withQuery("Sorry We Couldn't Find What You Want...")->withSearchRes([])->withUsers($users);
+            }
+        }else{
+            //when the search query is empty
+            $users = DB::select('select * from restaurant');
+        }
+        
+        //when the search query is empty just retrieve all the restaurant
+        return view('dashboard')->withQuery("")->withSearchRes([])->withUsers($users);
     }
 
     public function viewRes($id){

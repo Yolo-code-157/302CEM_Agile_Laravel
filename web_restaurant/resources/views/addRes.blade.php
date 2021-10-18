@@ -11,9 +11,15 @@
         <!-- Fonts and icons -->
         <link rel="stylesheet" type="text/css"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<<<<<<< HEAD
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">    
         <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"-->
 
+=======
+        {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"> --}}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+        
+>>>>>>> fc24b618c94399d9e61225adff528af2f25beba3
         <!-- Material Kit CSS -->
         <link href="/assets/css/addRes.css" rel="stylesheet" />
     </head>

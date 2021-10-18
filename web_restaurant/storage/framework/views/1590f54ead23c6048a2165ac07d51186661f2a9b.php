@@ -46,35 +46,63 @@
         <div class="main main-raised">
             <div class="container">
                 <div class="pt-5">
-                    <form name="" action="" method="" class="flex">
-                        <input type="text" name="" placeholder="Search" class="form-control m-xl-3" required>
+                    <form name="" method="get" class="flex">
+                        <input type="search" name="search" placeholder="Search" class="form-control m-xl-3" required>
                         <input type="submit" name="" class="btn btn-primary btn-round m-xl-3">
                     </form>
                 </div>
-                <div class="section">
-                
-                <div class="row">
-                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>  
-                    <!--Modal-->
-                    <div class="col-lg-3 col-sm-6 mb-sm-3">
-                        <div class="card-plain">
-                            <div class="card-header p-0">
-                                
-                                <img src="data:image/<?php echo e(base64_encode($row->resPicType)); ?>;charset=utf8;base64,<?php echo e(base64_encode($row->resPic)); ?>" 
-                                class="img-fluid border-radius-lg" alt="restaurant image" loading="lazy"/>
+                <div class="">
+                    <?php if($query != ""): ?> 
+                    
+                        <div class="search-container">
+                            
+                            <h5 class=""><?php echo $query; ?></h5>
+                            
+                            <?php if(count($searchRes) > 0): ?>
+                                <div class="pt-5 row search-row">
+                                    <?php $__currentLoopData = $searchRes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $search): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>  
+                                    <!--Retrieving all the data based on the search query-->
+                                    <div class="col-lg-3 col-sm-6 mb-sm-3">
+                                        <div class="card-plain">
+                                            <div class="card-header p-0">
+                                                <img src="data:image/<?php echo e(base64_encode($search->resPicType)); ?>;charset=utf8;base64,<?php echo e(base64_encode($search->resPic)); ?>" 
+                                                class="img-fluid border-radius-lg" alt="restaurant image" loading="lazy"/>
+                                            </div>
+                                            <div class="card-body px-0">
+                                                <h3>
+                                                <a href="#" class="text-dark font-weight-bold"><?php echo e($search -> resName); ?></a>
+                                                </h3>
+                                                <h5>Postcode: <?php echo e($search -> resPostcode); ?></h5>
+                                                <a href="viewRes/<?php echo e($search->resID); ?>" class="text-primary text-sm">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>                
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>                
+                    <?php endif; ?>
+                    <div class="row section">
+                        <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>  
+                        <!--Retrieving all the data-->
+                        <div class="col-lg-3 col-sm-6 mb-sm-3">
+                            <div class="card-plain">
+                                <div class="card-header p-0">
+                                    <img src="data:image/<?php echo e(base64_encode($row->resPicType)); ?>;charset=utf8;base64,<?php echo e(base64_encode($row->resPic)); ?>" 
+                                    class="img-fluid border-radius-lg" alt="restaurant image" loading="lazy"/>
+                                </div>
+                                <div class="card-body px-0">
+                                    <h3>
+                                        <a href="#" class="text-dark font-weight-bold"><?php echo e($row -> resName); ?></a>
+                                    </h3>
+                                    <h5>Postcode: <?php echo e($row -> resPostcode); ?></h5>
+                                    <a href="viewRes/<?php echo e($row->resID); ?>" class="text-primary text-sm">Read More</a>
+                                </div>
                             </div>
-                            <div class="card-body px-0">
-                                <h3>
-                                 <a href="#" class="text-dark font-weight-bold"><?php echo e($row -> resName); ?></a>
-                                </h3>
-                                <h5>Postcode: <?php echo e($row -> resPostcode); ?></h5>
-                                <a href="viewRes/<?php echo e($row->resID); ?>" class="text-primary text-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>                
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </div>                
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </body>
