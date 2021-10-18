@@ -48,9 +48,10 @@
                     </form>
                 </div>
                 <div class="">
+                    @if ($query != "") 
                     {{-- the query is no empty --}}
-                    @if ($query != "")
                         <div class="search-container">
+                            {{-- Remove HTML tag and get the text --}}
                             <h5 class="">{!!$query!!}</h5>
                             {{-- if the search restaurant found --}}
                             @if (count($searchRes) > 0)
