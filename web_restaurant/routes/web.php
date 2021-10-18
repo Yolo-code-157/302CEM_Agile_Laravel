@@ -43,6 +43,7 @@ Route::get('logout', [addController::class, 'logout']);
 Route::post('add', [addController::class, 'add']);
 Route::get('dashboard',[addController::class, 'index']);
 
+Route::get('viewRes/{id}', [addController::class, 'viewRes']);
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
