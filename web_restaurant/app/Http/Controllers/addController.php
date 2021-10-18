@@ -25,6 +25,15 @@ class addController extends Controller
         return view('viewRes',$data);
 
     }
+    public function resRating($id){
+        $row = DB::table('restaurant')->where('resID', $id)->first();
+        $data = [
+            'Detail' => $row,
+        ];
+
+        return view('resRating',$data);
+
+    }
 
     function logout(Request $request)
     {
