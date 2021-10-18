@@ -19092,4 +19092,17 @@ footer .pull-center {
   }
 }
 
+.search-container{
+  padding: 15px 30px;
+  margin: 30px 0 50px;
+  border: 1px solid #9736a7;
+  background-color: #f7f0f9;
+  border-radius: 30px;
+}
+
+.result-not-found{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /*# sourceMappingURL=kit-free.css.map */
