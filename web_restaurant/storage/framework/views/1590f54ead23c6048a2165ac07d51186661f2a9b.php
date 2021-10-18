@@ -52,9 +52,10 @@
                     </form>
                 </div>
                 <div class="">
+                    <?php if($query != ""): ?> 
                     
-                    <?php if($query != ""): ?>
                         <div class="search-container">
+                            
                             <h5 class=""><?php echo $query; ?></h5>
                             
                             <?php if(count($searchRes) > 0): ?>
