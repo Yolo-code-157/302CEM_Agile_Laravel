@@ -11,9 +11,9 @@
             <!-- Fonts and icons -->
             <link rel="stylesheet" type="text/css"
                 href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-            {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"> --}}
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-            
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">    
+            <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"-->
+
             <!-- Material Kit CSS -->
             <link href="/assets/css/viewRes.css" rel="stylesheet" />
 
@@ -44,6 +44,7 @@
                 <h4>Food Type: {{$Detail -> resFoodType}}</h4>
                 <h4>Description: {!! nl2br($Detail -> resDescription)!!}</h4>
                 <h4>Created At: {{$Detail -> createdAt}}</h4>
+                <a href="/resRating/{{$Detail->resID}}" class="text-primary text-sm">Review & Ratings </a>
             </div>
         </div>
 
