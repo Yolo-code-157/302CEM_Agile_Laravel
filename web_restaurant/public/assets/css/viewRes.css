@@ -18026,7 +18026,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .header-filter::before {
-    background: rgba(0, 0, 0, 0.5);
+    background: url("../../img/bg2.jpg");
 }
 
 .header-filter .container {
@@ -18588,10 +18588,10 @@ footer .pull-center {
 }
 
 /*!
- * Datetimepicker for Bootstrap 3
- * ! version : 4.17.37
- * https://github.com/Eonasdan/bootstrap-datetimepicker/
- */
+   * Datetimepicker for Bootstrap 3
+   * ! version : 4.17.37
+   * https://github.com/Eonasdan/bootstrap-datetimepicker/
+   */
 .sr-only,
 .bootstrap-datetimepicker-widget .btn[data-action="incrementHours"]::after,
 .bootstrap-datetimepicker-widget .btn[data-action="incrementMinutes"]::after,
@@ -18987,9 +18987,9 @@ footer .pull-center {
 
 /*! nouislider - 14.1.1  */
 /* Functional styling;
- * These styles are required for noUiSlider to function.
- * You don't need to change these rules to apply your design.
- */
+   * These styles are required for noUiSlider to function.
+   * You don't need to change these rules to apply your design.
+   */
 .noUi-target,
 .noUi-target * {
     -webkit-touch-callout: none;
@@ -19017,7 +19017,7 @@ footer .pull-center {
 }
 
 /* Wrapper for all connect elements.
- */
+   */
 .noUi-connects {
     overflow: hidden;
     z-index: 0;
@@ -19048,15 +19048,15 @@ footer .pull-center {
 }
 
 /* Offset direction
- */
+   */
 .noUi-txt-dir-rtl.noUi-horizontal .noUi-origin {
     left: auto;
     right: 0;
 }
 
 /* Give origins 0 height/width so they don't interfere with clicking the
- * connect elements.
- */
+   * connect elements.
+   */
 .noUi-vertical .noUi-origin {
     width: 0;
 }
@@ -19087,7 +19087,7 @@ footer .pull-center {
 }
 
 /* Slider size and handle placement;
- */
+   */
 .noUi-horizontal {
     height: 2px;
     margin: 15px 0;
@@ -19135,8 +19135,8 @@ footer .pull-center {
 }
 
 /* Styling;
- * Giving the connect element a border radius causes issues with using transform: scale
- */
+   * Giving the connect element a border radius causes issues with using transform: scale
+   */
 .noUi-target {
     background: #c8c8c8;
     border-radius: 4px;
@@ -19151,7 +19151,7 @@ footer .pull-center {
 }
 
 /* Handles and cursors;
- */
+   */
 .noUi-draggable {
     cursor: ew-resize;
 }
@@ -19181,7 +19181,7 @@ footer .pull-center {
 }
 
 /* Handle stripes;
- */
+   */
 .noUi-handle:after {
     left: 17px;
 }
@@ -19199,7 +19199,7 @@ footer .pull-center {
 }
 
 /* Disabled state;
- */
+   */
 [disabled] .noUi-connect {
     background: #b8b8b8;
 }
@@ -19211,8 +19211,8 @@ footer .pull-center {
 }
 
 /* Base;
- *
- */
+   *
+   */
 .noUi-pips,
 .noUi-pips * {
     -moz-box-sizing: border-box;
@@ -19225,8 +19225,8 @@ footer .pull-center {
 }
 
 /* Values;
- *
- */
+   *
+   */
 .noUi-value {
     position: absolute;
     white-space: nowrap;
@@ -19239,8 +19239,8 @@ footer .pull-center {
 }
 
 /* Markings;
- *
- */
+   *
+   */
 .noUi-marker {
     position: absolute;
     background: #ccc;
@@ -19255,8 +19255,8 @@ footer .pull-center {
 }
 
 /* Horizontal layout;
- *
- */
+   *
+   */
 .noUi-pips-horizontal {
     padding: 10px 0;
     height: 80px;
@@ -19290,8 +19290,8 @@ footer .pull-center {
 }
 
 /* Vertical layout;
- *
- */
+   *
+   */
 .noUi-pips-vertical {
     padding: 0 10px;
     height: 100%;
@@ -20259,19 +20259,6 @@ footer .pull-center {
         transform: translate3d(-25px, 0, 0);
         width: 245px;
     }
-}
-
-.search-container {
-    padding: 15px 30px;
-    margin: 30px 0 50px;
-    border: 1px solid #9736a7;
-    background-color: #f7f0f9;
-    border-radius: 30px;
-}
-
-.result-not-found {
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /*# sourceMappingURL=kit-free.css.map */
