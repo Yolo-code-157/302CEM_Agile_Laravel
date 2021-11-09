@@ -45,6 +45,7 @@
                 <h4>Description: {!! nl2br($Detail -> resDescription)!!}</h4>
                 <h4>Created At: {{$Detail -> createdAt}}</h4>
                 <a href="/resRating/{{$Detail->resID}}" class="text-primary text-sm">Review & Ratings </a>
+
             </div>
         </div>
 

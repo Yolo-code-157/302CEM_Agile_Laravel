@@ -29,6 +29,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/addRes', function () {
     return view('addRes');
 })->name('addRes');
 
+/**Route::middleware(['auth:sanctum', 'verified'])->get('resRating/{id}', function () {
+    return view('resRating/{id}');
+})->name('resRating/{id}');*/
+
 Route::get('/header', function () {
     return view('header');
     // return 'restaurant';

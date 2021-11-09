@@ -39,6 +39,7 @@
        
         <div class="form-group">
         <div class="container">
+                <h4 style="text-align:center ; font-weight:bold;" hidden>{{$Detail -> resID }}</h4>
                 <h4 style="text-align:center ; font-weight:bold;">Restaurant Name: {{$Detail -> resName}}</h4>
                 <h4 style="text-align:center ; font-weight:bold;">Postcode: {{$Detail -> resPostcode}}</h4>
         </div>
