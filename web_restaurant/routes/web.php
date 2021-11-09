@@ -50,7 +50,6 @@ Route::get('dashboard',[addController::class, 'index']);
 Route::get('viewRes/{id}', [addController::class, 'viewRes']);
 Route::get('resRating/{id}', [addController::class, 'resRating']);
 
-
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');

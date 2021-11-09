@@ -3,43 +3,40 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use GrahamCampbell\ResultType\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class addController extends Controller
 {
-    // public function index(){
-    //     $users = DB::select('select * from restaurant');
-    //     return view('dashboard',['users'=>$users]);
-    // }
-
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $search = $request['search'] ?? ""; //for checking the search query is empty or not and assign to $search
         $users = DB::select('select * from restaurant'); //by default the view will be showing all the restaurant
 
         //when the seach query is not empty
-        if($search != ""){
+        if ($search != "") {
             //retrieve the data based on the search query
-            $searchRes = DB::table('restaurant')->where('resName','LIKE','%'.$search.'%')->get();
+            $searchRes = DB::table('restaurant')->where('resName', 'LIKE', '%' . $search . '%')->get();
+            $searchCount = $searchRes->count();
 
-            if(count($searchRes)>0){
+            if (count($searchRes) > 0) {
                 //if restaurant found
-                return view('dashboard')->withQuery("Search results for your query are: <b>$search</b>")->withSearchRes($searchRes)->withUsers($users);
-            }else{
+                return view('dashboard')->withQuery("<b>$searchCount</b> result(s) found for <b>$search</b>")->withSearchRes($searchRes)->withUsers($users);
+            } else {
                 //if restaurant not found
-                return view('dashboard')->withQuery("Sorry We Couldn't Find What You Want...")->withSearchRes([])->withUsers($users);
+                return view('dashboard')->withQuery("<b>$searchCount</b> result(s) found for <b>$search</b>")->withSearchRes([])->withUsers($users);
             }
-        }else{
+        } else {
             //when the search query is empty
             $users = DB::select('select * from restaurant');
         }
-        
+
         //when the search query is empty just retrieve all the restaurant
         return view('dashboard')->withQuery("")->withSearchRes([])->withUsers($users);
     }
 
-    public function viewRes($id){
+    public function viewRes($id)
+    {
         //echo $id; testing purpose
         $row = DB::table('restaurant')->where('resID', $id)->first();
         $data = [
@@ -47,17 +44,16 @@ class addController extends Controller
             'Title' => 'Restaurant Detail'
         ];
 
-        return view('viewRes',$data);
-
+        return view('viewRes', $data);
     }
-    public function resRating($id){
+    public function resRating($id)
+    {
         $row = DB::table('restaurant')->where('resID', $id)->first();
         $data = [
             'Detail' => $row,
         ];
 
-        return view('resRating',$data);
-
+        return view('resRating', $data);
     }
 
     function logout(Request $request)
@@ -77,7 +73,7 @@ class addController extends Controller
             'description' => 'required'
         ]);
 
-        if($request->hasFile('pic')){
+        if ($request->hasFile('pic')) {
             $image = $request->file('pic');
             $type = pathinfo($image, PATHINFO_EXTENSION);
             $data = file_get_contents($image);
