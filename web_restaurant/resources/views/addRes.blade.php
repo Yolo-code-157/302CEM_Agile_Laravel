@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="section text-left">
                     <form name="Add Res" action="add" method="post" enctype="multipart/form-data">
-                        @csrf
+                    @csrf
                         <input type="text" class="form-control" placeholder="Restaurant Name" name="name"
                             required><br>
                         <span style="color:red">@error('name'){{ $message }} @enderror</span>
