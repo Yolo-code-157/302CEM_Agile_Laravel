@@ -32,6 +32,17 @@
     </head>
 
     <body>
+        @if (Session::get('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+        @if (Session::get('fail'))
+            <div class="alert alert-danger">
+                {{ Session::get('fail') }}
+            </div>
+        @endif
+
         <div class="page-header header-filter" data-parallax="true" style="background-image: url(/img/bg7.jpg)">
             <div class="container">
                 <div class="row">
@@ -43,18 +54,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-       
-        <div class="form-group">
-        <div class="container">
-                <h4 style="text-align:center ; font-weight:bold;" hidden>{{$Detail -> resID }}</h4>
-                <h4 style="text-align:center ; font-weight:bold;">Restaurant Name: {{$Detail -> resName}}</h4>
-                <h4 style="text-align:center ; font-weight:bold;">Postcode: {{$Detail -> resPostcode}}</h4>
-        </div>
-                <div class="form-group">
-                    <!-- Create the editor container -->
-                    <div id="content" name="Description" style="height:300px">
-=======
 
         <div class="main main-raised">
             <div class="container">
@@ -71,15 +70,25 @@
                                 {{ $Detail->resPostcode }}
                             </p>
                         </div>
-                        <form role="form" method="post">
+                        <form action="rating" method="POST" >
+                        @csrf
+                        
+                        
                             <div class="card-body px-0">
                                 <div class="row">
+
+                                    <div class="col">
+                                        <input type="text" id="" name="hidden_resID" value="{{ $Detail->resID }}" hidden>
+                                        <input type="text" id="" name="hidden_userID" value="{{ Auth::user()->id }}" hidden>
+                                    </div>
+
                                     <div class="col">
                                         <label>Service: </label><br>
                                         <input type="range" id="service_vol" name="service_vol" min="0" max="5" value="0">
                                         <br>
                                         <p>Value: <span id="service_no"></span></p>
                                         <br>
+                                        <span style="color:red">@error('service_vol'){{ $message }} @enderror</span>
                                     </div>
 
                                     <div class="col">
@@ -87,6 +96,8 @@
                                         <input type="range" id="value_vol" name="value_vol" min="0" max="5" value="0">
                                         <br>
                                         <p>Value: <span id="value_no"></span></p>
+                                        <span style="color:red">@error('value_vol'){{ $message }} @enderror</span>
+
                                         <br>
                                     </div>
 
@@ -96,6 +107,8 @@
                                         <br>
                                         <p>Value: <span id="food_no"></span></p>
                                         <br>
+                                        <span style="color:red">@error('food_vol'){{ $message }} @enderror</span>
+
                                     </div>
                                 </div>
 
@@ -104,7 +117,6 @@
                                 <input type="submit" class="btn bg-primary w-100 mt-3">
                             </div>
                         </form>
->>>>>>> f59fb27819e0d9cac2693d7d77f5061ba8327e57
                     </div>
                 </div>
             </div>

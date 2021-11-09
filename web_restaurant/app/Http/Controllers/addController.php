@@ -103,4 +103,31 @@ class addController extends Controller
             return back()->with('success', 'data saved');
         }
     }
+
+    function rating(Request $request){
+
+        $request->validate([
+            'service_vol' => 'required',
+            'value_vol' => 'required',
+            'food_vol' => 'required',
+            'review' => 'required'
+        ]);
+
+        $query = DB::table('rating')->insert([
+            'resID' => $request->input('hidden_resID'),
+            'userID' => $request->input('hidden_userID'),
+            'service' => $request->input('service_vol'),
+            'value' => $request->input('value_vol'),
+            'food' => $request->input('food_vol'),
+            'review' => $request->input('review')
+        ]);
+
+        if($query){
+            return back()->with('success', 'Rating saved');
+        }else{
+            return back()->with('fail', 'Rating failed');
+        }
+        
+
+    }
 }

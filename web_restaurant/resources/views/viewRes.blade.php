@@ -49,16 +49,6 @@
         </div>
         <div class="main main-raised">
             <div class="container">
-<<<<<<< HEAD
-                <img src="data:image/{{base64_encode($Detail->resPicType)}};charset=utf8;base64,{{base64_encode($Detail->resPic)}}" alt="restaurant image" loading="lazy"/>
-                <h4>Restaurant Name: {{$Detail -> resName}}</h4>
-                <h4>Postcode: {{$Detail -> resPostcode}}</h4>
-                <h4>Food Type: {{$Detail -> resFoodType}}</h4>
-                <h4>Description: {!! nl2br($Detail -> resDescription)!!}</h4>
-                <h4>Created At: {{$Detail -> createdAt}}</h4>
-                <a href="/resRating/{{$Detail->resID}}" class="text-primary text-sm">Review & Ratings </a>
-
-=======
                 <div class="row section">
                     <div class="col">
                         <img src="data:image/{{ base64_encode($Detail->resPicType) }};charset=utf8;base64,{{ base64_encode($Detail->resPic) }}"
@@ -88,7 +78,6 @@
                         </div>
                     </div>
                 </div>
->>>>>>> f59fb27819e0d9cac2693d7d77f5061ba8327e57
             </div>
         </div>
     </body>
