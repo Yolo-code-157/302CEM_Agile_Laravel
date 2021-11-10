@@ -128,6 +128,33 @@
                                 {{ $Detail->resFoodType }}
                             </p>
                             <p>
+                                <i class="fas fa-laugh-beam text-primary"></i> Service Rate: 
+                                {{-- Check number of review is more than zero and only display the service rating --}}
+                                @if ($Detail->numReviews > 0)
+                                    {{ sprintf('%.1f', $Detail->serviceRating / $Detail->numReviews) }} /5                                    
+                                @else
+                                    -
+                                @endif
+                            </p>
+                            <p>
+                                <i class="fas fa-concierge-bell text-primary"></i> Food Rate: 
+                                {{-- Check number of review is more than zero and only display the food rating --}}
+                                @if ($Detail->numReviews > 0)
+                                    {{ sprintf('%.1f', $Detail->foodRating / $Detail->numReviews) }} /5                                   
+                                @else
+                                    -
+                                @endif
+                            </p>
+                            <p>
+                                <i class="fas fa-thumbs-up text-primary"></i> Value Rate: 
+                                {{-- Check number of review is more than zero and only display the value rating --}}
+                                @if ($Detail->numReviews > 0)
+                                    {{ sprintf('%.1f', $Detail->valueRating / $Detail->numReviews) }} /5                                
+                                @else
+                                    -
+                                @endif
+                            </p>
+                            <p>
                                 <i class="fas fa-clock text-primary"></i>
                                 {{ substr($Detail->createdAt, 0, 10) }}
                             </p>
