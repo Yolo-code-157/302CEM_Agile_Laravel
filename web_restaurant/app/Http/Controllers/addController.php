@@ -11,12 +11,12 @@ class addController extends Controller
     public function index(Request $request)
     {
         $search = $request['search'] ?? ""; //for checking the search query is empty or not and assign to $search
-        $users = DB::select('select * from restaurant'); //by default the view will be showing all the restaurant
+        $users = DB::select('select * from restaurants'); //by default the view will be showing all the restaurant
 
         //when the seach query is not empty
         if ($search != "") {
             //retrieve the data based on the search query
-            $searchRes = DB::table('restaurant')->where('resName', 'LIKE', '%' . $search . '%')->get();
+            $searchRes = DB::table('restaurants')->where('resName', 'LIKE', '%' . $search . '%')->get();
             $searchCount = $searchRes->count();
 
             if (count($searchRes) > 0) {
@@ -28,7 +28,7 @@ class addController extends Controller
             }
         } else {
             //when the search query is empty
-            $users = DB::select('select * from restaurant');
+            $users = DB::select('select * from restaurants');
         }
 
         //when the search query is empty just retrieve all the restaurant
@@ -38,7 +38,7 @@ class addController extends Controller
     public function viewRes($id)
     {
         //echo $id; testing purpose
-        $row = DB::table('restaurant')->where('resID', $id)->first();
+        $row = DB::table('restaurants')->where('resID', $id)->first();
         $data = [
             'Detail' => $row,
             'Title' => 'Restaurant Detail'
@@ -48,7 +48,7 @@ class addController extends Controller
     }
     public function resRating($id)
     {
-        $row = DB::table('restaurant')->where('resID', $id)->first();
+        $row = DB::table('restaurants')->where('resID', $id)->first();
         $data = [
             'Detail' => $row,
         ];
@@ -86,10 +86,10 @@ class addController extends Controller
         $mytime = Carbon::now("Asia/Kuala_Lumpur");
         echo $mytime->toDateTimeString();
 
-        if (DB::table('restaurant')->where('resName', $name_val)->where('resPostcode', $postcode_val)->exists()) {
+        if (DB::table('restaurants')->where('resName', $name_val)->where('resPostcode', $postcode_val)->exists()) {
             return back()->with('fail', 'Name and postcode of the restaurant are already in the system');
         } else {
-            $query = DB::table('restaurant')->insert([
+            $query = DB::table('restaurants')->insert([
                 'resName' => $request->input('name'),
                 'resPostcode' => $request->input('postcode'),
                 'resPicType' => $type,
@@ -113,7 +113,7 @@ class addController extends Controller
             'review' => 'required'
         ]);
 
-        $query = DB::table('rating')->insert([
+        $query = DB::table('ratings')->insert([
             'resID' => $request->input('hidden_resID'),
             'userID' => $request->input('hidden_userID'),
             'service' => $request->input('service_vol'),
