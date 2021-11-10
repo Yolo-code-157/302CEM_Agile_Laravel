@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class addController extends Controller
 {
@@ -38,14 +39,19 @@ class addController extends Controller
     public function viewRes($id)
     {
         //echo $id; testing purpose
-        $row = DB::table('restaurant')->where('resID', $id)->first();
+        $row1 = DB::table('restaurant')->where('resID', $id)->first();
+        $row2 = DB::table('rating')->where('resID', $id)->first();
         $data = [
-            'Detail' => $row,
+            'Detail' => $row1,
+            'RateDetail' => $row2,
             'Title' => 'Restaurant Detail'
         ];
 
+
+
         return view('viewRes', $data);
     }
+    
     public function resRating($id)
     {
         $row = DB::table('restaurant')->where('resID', $id)->first();
@@ -104,13 +110,14 @@ class addController extends Controller
         }
     }
 
-    function rating(Request $request){
+    function rating(Request $request)
+    {
 
         $request->validate([
             'service_vol' => 'required',
             'value_vol' => 'required',
             'food_vol' => 'required',
-            'review' => 'required'
+            'review' => 'required | min:100 | max:300'
         ]);
 
         $query = DB::table('rating')->insert([
@@ -122,12 +129,10 @@ class addController extends Controller
             'review' => $request->input('review')
         ]);
 
-        if($query){
+        if ($query) {
             return back()->with('success', 'Rating saved');
-        }else{
+        } else {
             return back()->with('fail', 'Rating failed');
         }
-        
-
     }
 }
