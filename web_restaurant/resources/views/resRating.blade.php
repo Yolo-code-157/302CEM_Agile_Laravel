@@ -70,25 +70,21 @@
                                 {{ $Detail->resPostcode }}
                             </p>
                         </div>
-                        <form action="rating" method="POST" >
-                        @csrf
-                        
-                        
+                        <form action="rating" method="POST">
+                            @csrf
+
                             <div class="card-body px-0">
                                 <div class="row">
 
                                     <div class="col">
-                                        <input type="text" id="" name="hidden_resID" value="{{ $Detail->resID }}" hidden>
-                                        <input type="text" id="" name="hidden_userID" value="{{ Auth::user()->id }}" hidden>
-                                    </div>
-
-                                    <div class="col">
                                         <label>Service: </label><br>
-                                        <input type="range" id="service_vol" name="service_vol" min="0" max="5" value="0">
+                                        <input type="range" id="service_vol" name="service_vol" min="0" max="5"
+                                            value="0">
                                         <br>
                                         <p>Value: <span id="service_no"></span></p>
                                         <br>
-                                        <span style="color:red">@error('service_vol'){{ $message }} @enderror</span>
+                                        <span style="color:red">@error('service_vol'){{ $message }}
+                                            @enderror</span>
                                     </div>
 
                                     <div class="col">
@@ -114,7 +110,16 @@
 
                                 <label>Your Review</label>
                                 <textarea name="review" class="form-control" rows="4" required></textarea>
+                                <span style="color:red">@error('review'){{ $message }} @enderror</span>
+
                                 <input type="submit" class="btn bg-primary w-100 mt-3">
+
+                                <div>
+                                    <input type="text" id="" name="hidden_resID" value="{{ $Detail->resID }}" hidden>
+                                    <input type="text" id="" name="hidden_userID" value="{{ Auth::user()->id }}"
+                                        hidden>
+                                </div>
+
                             </div>
                         </form>
                     </div>

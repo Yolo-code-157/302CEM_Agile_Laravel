@@ -110,7 +110,10 @@
                                 <!--Retrieving all the data-->
                                 <div class="col-lg-3 col-sm-6 mb-sm-3">
                                     <div class="card-plain">
-                                        <div class="card-header p-0">
+                                        <div class="card-header p-0 position-relative">
+                                            <span class="position-absolute badge bg-primary badge-xl" style="left: 90%; bottom: 90%;">
+                                                5.0
+                                            </span>
                                             <img src="data:image/{{ base64_encode($row->resPicType) }};charset=utf8;base64,{{ base64_encode($row->resPic) }}"
                                                 class="img-fluid border-radius-lg" alt="restaurant image"
                                                 loading="lazy" />
