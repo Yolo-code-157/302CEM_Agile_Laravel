@@ -41,9 +41,11 @@ class addController extends Controller
         //echo $id; testing purpose
         $row1 = DB::table('restaurant')->where('resID', $id)->first();
         $row2 = DB::table('rating')->where('resID', $id)->first();
+        $row3 = DB::select("select * from rating WHERE resID='$id'");
         $data = [
             'Detail' => $row1,
             'RateDetail' => $row2,
+            'Rating' =>$row3,
             'Title' => 'Restaurant Detail'
         ];
 
@@ -121,10 +123,11 @@ class addController extends Controller
             'service_vol' => 'required',
             'value_vol' => 'required',
             'food_vol' => 'required',
-            'review' => 'required | min:100 | max:300'
+            'review' => 'required'
         ]);
 
         $query = DB::table('rating')->insert([
+            'username' => $request->input('username'),
             'resID' => $request->input('hidden_resID'),
             'userID' => $request->input('hidden_userID'),
             'service' => $request->input('service_vol'),
@@ -145,6 +148,7 @@ class addController extends Controller
             //Get the total score from Value Rating in Restaurant Table
             $queryValueRating = DB::table('restaurant')->where('resID', $request->input('hidden_resID'))->pluck('valueRating');
             $valueRating = $queryValueRating[0] + $request->input('value_vol');
+
 
             //Get the total number of reviews from Restaurant Table
             $queryNumRating = DB::table('restaurant')->where('resID', $request->input('hidden_resID'))->pluck('numReviews');

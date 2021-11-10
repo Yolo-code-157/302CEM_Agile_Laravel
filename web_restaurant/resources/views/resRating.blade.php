@@ -115,6 +115,7 @@
                                 <input type="submit" class="btn bg-primary w-100 mt-3">
 
                                 <div>
+                                    <input type="text" hidden class="form-control" value="{{ Auth::user()->name }}" name="username" required><br>
                                     <input type="text" id="" name="hidden_resID" value="{{ $Detail->resID }}" hidden>
                                     <input type="text" id="" name="hidden_userID" value="{{ Auth::user()->id }}"
                                         hidden>
