@@ -39,13 +39,8 @@ class addController extends Controller
     public function viewRes($id)
     {
         //echo $id; testing purpose
-<<<<<<< HEAD
         $row1 = DB::table('restaurant')->where('resID', $id)->first();
         $row2 = DB::table('rating')->where('resID', $id)->first();
-=======
-        $row = DB::table('restaurant')->where('resID', $id)->first();
-
->>>>>>> c2172d321d225c6b9638c1b1cf4a005e1962f40d
         $data = [
             'Detail' => $row1,
             'RateDetail' => $row2,
@@ -138,11 +133,6 @@ class addController extends Controller
             'review' => $request->input('review')
         ]);
 
-<<<<<<< HEAD
-        if ($query) {
-            return back()->with('success', 'Rating saved');
-        } else {
-=======
         if($query){
             //Get the total score from Service Rating in Restaurant Table
             $queryServiceRating = DB::table('restaurant')->where('resID', $request->input('hidden_resID'))->pluck('serviceRating');
@@ -171,7 +161,6 @@ class addController extends Controller
             }
             
         }else{
->>>>>>> c2172d321d225c6b9638c1b1cf4a005e1962f40d
             return back()->with('fail', 'Rating failed');
         }
     }

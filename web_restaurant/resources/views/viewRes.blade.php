@@ -202,9 +202,9 @@
                         <hr>
                         <h5 class="font-weight-bold">
                             <i class="fas fa-user text-primary"></i>
-                            {{ $RateDetail->userID }}
+                            Username
                         </h5>
-                        {{ $RateDetail->review }}
+                        Review
                     </div>
                 </div>
             </div>
