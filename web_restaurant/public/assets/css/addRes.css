@@ -23,6 +23,10 @@
         default !important;
 }
 
+.badge.badge-xl {
+    font-size: 1em;
+  }
+
 .card {
     font-size: 0.875rem;
 }
