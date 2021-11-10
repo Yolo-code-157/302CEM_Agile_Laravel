@@ -29,6 +29,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/addRes', function () {
     return view('addRes');
 })->name('addRes');
 
+/**Route::middleware(['auth:sanctum', 'verified'])->get('resRating/{id}', function () {
+    return view('resRating/{id}');
+})->name('resRating/{id}');*/
+
 Route::get('/header', function () {
     return view('header');
     // return 'restaurant';
@@ -41,10 +45,15 @@ Route::get('/footer', function () {
 
 Route::get('logout', [addController::class, 'logout']);
 Route::post('add', [addController::class, 'add']);
-Route::get('dashboard',[addController::class, 'index']);
+Route::get('dashboard', [addController::class, 'index']);
 
 Route::get('viewRes/{id}', [addController::class, 'viewRes']);
-Route::get('resRating/{id}', [addController::class, 'resRating']);
+Route::middleware(['auth:sanctum', 'verified'])
+    ->get('/resRating/{id}',  [addController::class, 'resRating'], function () {
+        return view('resRating');
+    })->name('resRating');
+Route::post('{id}/rating', [addController::class, 'rating']);
+
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
