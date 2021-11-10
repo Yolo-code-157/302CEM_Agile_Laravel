@@ -39,6 +39,7 @@ class addController extends Controller
     {
         //echo $id; testing purpose
         $row = DB::table('restaurant')->where('resID', $id)->first();
+
         $data = [
             'Detail' => $row,
             'Title' => 'Restaurant Detail'
@@ -97,6 +98,10 @@ class addController extends Controller
                 'resFoodType' => $request->input('foodtype'),
                 'resDescription' => $request->input('description'),
                 'resOwnerName' => $request->input('username'),
+                'serviceRating' => 0,
+                'foodRating' => 0,
+                'valueRating' => 0,
+                'numReviews' => 0,                
                 'createdAt' => $mytime
             ]);
 
@@ -123,7 +128,32 @@ class addController extends Controller
         ]);
 
         if($query){
-            return back()->with('success', 'Rating saved');
+            //Get the total score from Service Rating in Restaurant Table
+            $queryServiceRating = DB::table('restaurant')->where('resID', $request->input('hidden_resID'))->pluck('serviceRating');
+            $serviceRating = $queryServiceRating[0] + $request->input('service_vol');
+
+            //Get the total score from Food Rating in Restaurant Table
+            $queryFoodRating = DB::table('restaurant')->where('resID', $request->input('hidden_resID'))->pluck('foodRating');
+            $foodRating = $queryFoodRating[0] + $request->input('food_vol');
+
+            //Get the total score from Value Rating in Restaurant Table
+            $queryValueRating = DB::table('restaurant')->where('resID', $request->input('hidden_resID'))->pluck('valueRating');
+            $valueRating = $queryValueRating[0] + $request->input('value_vol');
+
+            //Get the total number of reviews from Restaurant Table
+            $queryNumRating = DB::table('restaurant')->where('resID', $request->input('hidden_resID'))->pluck('numReviews');
+            $numRating = $queryNumRating[0] + 1; //increment the number of reviews
+
+            //Update to Restaurant Table
+            $updateServeRating = DB::table('restaurant')->where('resID', $request->input('hidden_resID'))->update(['serviceRating' => $serviceRating]); 
+            $updateFoodRating = DB::table('restaurant')->where('resID', $request->input('hidden_resID'))->update(['foodRating' => $foodRating]); 
+            $updateValueRating = DB::table('restaurant')->where('resID', $request->input('hidden_resID'))->update(['valueRating' => $valueRating]); 
+            $updateNumRating = DB::table('restaurant')->where('resID',$request->input('hidden_resID'))->update(['numReviews'=> $numRating]);
+
+            if($updateServeRating){
+                return back()->with('success', 'Rating updated');
+            }
+            
         }else{
             return back()->with('fail', 'Rating failed');
         }
