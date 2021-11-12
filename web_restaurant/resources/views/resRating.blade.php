@@ -72,8 +72,6 @@
                                         <br>
                                         <p>Value: <span id="service_no"></span></p>
                                         <br>
-                                        <span style="color:red">@error('service_vol'){{ $message }}
-                                            @enderror</span>
                                     </div>
 
                                     <div class="col">
@@ -81,9 +79,6 @@
                                         <input type="range" id="value_vol" name="value_vol" min="0" max="5" value="0">
                                         <br>
                                         <p>Value: <span id="value_no"></span></p>
-                                        <span style="color:red">@error('value_vol'){{ $message }} @enderror</span>
-
-                                        <br>
                                     </div>
 
                                     <div class="col">
@@ -92,8 +87,6 @@
                                         <br>
                                         <p>Value: <span id="food_no"></span></p>
                                         <br>
-                                        <span style="color:red">@error('food_vol'){{ $message }} @enderror</span>
-
                                     </div>
                                 </div>
 
@@ -104,10 +97,9 @@
                                 <input type="submit" class="btn bg-primary w-100 mt-3">
 
                                 <div>
-                                    <input type="text" hidden class="form-control" value="{{ Auth::user()->name }}" name="username" required><br>
-                                    <input type="text" id="" name="hidden_resID" value="{{ $Detail->resID }}" hidden>
-                                    <input type="text" id="" name="hidden_userID" value="{{ Auth::user()->id }}"
-                                        hidden>
+                                    <input type="text" name="username" value="{{ Auth::user()->name }}" hidden>
+                                    <input type="text" name="hidden_resID" value="{{ $Detail->resID }}" hidden>
+                                    <input type="text" name="hidden_userID" value="{{ Auth::user()->id }}" hidden>
                                 </div>
 
                             </div>
