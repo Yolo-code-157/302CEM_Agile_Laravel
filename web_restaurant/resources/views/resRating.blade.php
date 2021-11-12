@@ -32,17 +32,6 @@
     </head>
 
     <body>
-        @if (Session::get('success'))
-            <div class="alert alert-success">
-                {{ Session::get('success') }}
-            </div>
-        @endif
-        @if (Session::get('fail'))
-            <div class="alert alert-danger">
-                {{ Session::get('fail') }}
-            </div>
-        @endif
-
         <div class="page-header header-filter" data-parallax="true" style="background-image: url(/img/bg7.jpg)">
             <div class="container">
                 <div class="row">
