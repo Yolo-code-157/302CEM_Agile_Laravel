@@ -49,8 +49,6 @@ class addController extends Controller
             'Title' => 'Restaurant Detail'
         ];
 
-
-
         return view('viewRes', $data);
     }
     
