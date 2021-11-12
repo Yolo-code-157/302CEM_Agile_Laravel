@@ -95,6 +95,16 @@
     </head>
 
     <body>
+        @if (Session::get('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+        @if (Session::get('fail'))
+            <div class="alert alert-danger">
+                {{ Session::get('fail') }}
+            </div>
+        @endif
         <div class="page-header header-filter" data-parallax="true" style="background-image: url('img/bg3.jpg')">
             <div class="container">
                 <div class="row">
@@ -158,9 +168,28 @@
                                 <i class="fas fa-clock text-primary"></i>
                                 {{ substr($Detail->createdAt, 0, 10) }}
                             </p>
-                            <a href="/resRating/{{ $Detail->resID }}" class="btn bg-primary w-100 mt-3">
-                                Write A Review
-                            </a>
+
+                            @if (Auth::user())
+                                @foreach ($Rating as $rate)
+                                    @if ($rate->username == Auth::user()->name)
+                                       <p class="btn bg-primary w-100 mt-3"> Review given</p>
+                                    @elseif($rate== $Rating[count($Rating)-1])
+                                        <a href="/resRating/{{ $Detail->resID }}" class="btn bg-primary w-100 mt-3">
+                                            Write A Review
+                                        </a>
+                                        
+                                    @endif
+                                @endforeach
+                                @if( count($Rating)==0 )
+                                <a href="/resRating/{{ $Detail->resID }}" class="btn bg-primary w-100 mt-3">
+                                            Write A Review
+                                        </a>
+                                @endif
+                            @else
+                                <a href="/resRating/{{ $Detail->resID }}" class="btn bg-primary w-100 mt-3">
+                                    Write A Review
+                                </a>
+                            @endif
                         </div>  
                     </div>
                 </div>

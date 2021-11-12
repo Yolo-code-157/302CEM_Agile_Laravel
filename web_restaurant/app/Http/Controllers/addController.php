@@ -161,7 +161,8 @@ class addController extends Controller
             $updateNumRating = DB::table('restaurant')->where('resID',$request->input('hidden_resID'))->update(['numReviews'=> $numRating]);
 
             if($updateServeRating){
-                return back()->with('success', 'Rating updated');
+                // return back()->with('success', 'Rating updated');
+                return redirect()->to('viewRes/'.$request->input('hidden_resID'))->with('success', 'Rating updated');           
             }
             
         }else{
